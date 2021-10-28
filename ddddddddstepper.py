@@ -79,6 +79,6 @@ S = Stepper()
 S.goAngle(200) 
 
 sleep(2)
-S.goAngle(200)
+S.goAngle(240)
 sleep(2)
 GPIO.cleanup() 
