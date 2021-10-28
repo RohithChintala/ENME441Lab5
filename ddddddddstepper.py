@@ -40,7 +40,7 @@ def moveSteps(steps, dir):
     halfstep(dir)
 
 
-
+#yes
 # Make a full rotation of the output shaft:
 def loop(dir): # dir = rotation direction (cw or ccw)
   for i in range(512): # full revolution (8 cycles/rotation * 64 gear ratio)
