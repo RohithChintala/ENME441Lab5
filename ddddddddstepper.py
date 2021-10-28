@@ -57,9 +57,9 @@ class Stepper:
   def goAngle(self, angle):
     step = (self.angle/360)*512
     if self.angle < 180:
-      movestep(step,-1)
+      moveSteps(step,-1)
     if self.angle > 180:
-      movestep(step,1)
+      moveSteps(step,1)
   #def zero(self):
     #GPIO.output(27, 1)
     #while self.adc.read(0) > 100: #check to see what normal value is
