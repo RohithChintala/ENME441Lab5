@@ -77,7 +77,6 @@ class Stepper:
 S = Stepper()
 #moveSteps(512*4,1)
 S.goAngle(200) 
-
 sleep(2)
 S.goAngle(60)
 sleep(2)
