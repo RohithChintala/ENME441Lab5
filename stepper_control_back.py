@@ -9,7 +9,7 @@ while True: #runs continuously
   GPIO.setup(16, GPIO.OUT)
   pwm1 = GPIO.PWM(16, 100) # PWM object on our pin at 100 Hz
   pwm1.start(100)
-  with open('steptest.txt', 'r') as f: #opens json dump file
+  with open('steptest2.txt', 'r') as f: #opens json dump file
     data = json.load(f) #sets data to be loaded from json dump file
     steps = data['slider1']
     act = data['action']
