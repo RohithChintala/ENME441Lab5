@@ -69,7 +69,7 @@ class Stepper:
     #self.angle = 0
     #currentstep = 0
 
-loop(cw)
+#loop(cw)
   #loop(ccw)
 S = StepperMotor(0x48)
 movestep(1000,1)
