@@ -1,4 +1,5 @@
 #!/usr/bin/python37all
+
 from stepper import Stepper 
 import cgi
 import json
@@ -21,7 +22,7 @@ print('<b>Lab 5 Stepper</b>')
 print('<br><br>')
 
 slide = {"slider1":s1, "action":act} #creates slide dictionary for slider and Led variables
-with open('steptest2.txt', 'w') as f: 
+with open('led-pwm.txt', 'w') as f: 
   json.dump(slide,f) #uses json to dump dictionary into file
 
 print('<html>')
