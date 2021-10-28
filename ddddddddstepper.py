@@ -51,7 +51,7 @@ def loop(dir): # dir = rotation direction (cw or ccw)
 
 
 class Stepper:
-  def __init__(self):
+  def __init__(self, angle):
     self.angle = angle
     #self.adc = PCF8591(address)
   def goAngle(self, angle):
@@ -70,7 +70,7 @@ class Stepper:
 
 #loop(cw)
   #loop(ccw)
-S = Stepper()
+S = Stepper(0)
 #moveSteps(1000,1)
 S.goAngle(60)
 #sleep(2) 
