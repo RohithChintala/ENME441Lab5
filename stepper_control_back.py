@@ -14,7 +14,7 @@ while True: #runs continuously
     act = data['action']
   S = Stepper()
   S.goAngle(angle)
-  sleep(2)
+  sleep(5)
   #if data['action'] == 'r':
   #if data['action'] == 'z':
   #  S.zero()
