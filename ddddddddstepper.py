@@ -73,5 +73,5 @@ class Stepper:
 S = Stepper(180)
 #moveSteps(1000,1)
 S.goAngle(180)
-#sleep(2) 
+sleep(2) 
 GPIO.cleanup() 
