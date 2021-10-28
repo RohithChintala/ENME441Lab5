@@ -7,7 +7,8 @@ from urllib.parse import urlencode
 
 while True: #runs continuously
   GPIO.setup(12, GPIO.OUT)
-  GPIO.output(12, 1)
+  pwm1 = GPIO.PWM(12, 100) # PWM object on our pin at 100 Hz
+  pwm1.start(0)
   with open('step.txt', 'r') as f: #opens json dump file
     data = json.load(f) #sets data to be loaded from json dump file
     steps = data['slider1']
