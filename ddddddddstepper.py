@@ -67,7 +67,7 @@ class Stepper:
     #GPIO.output(27, 0)
     #self.angle = 0
     #currentstep = 0
-
+#working
 #loop(cw)
   #loop(ccw)
 S = Stepper(200)
