@@ -1,4 +1,3 @@
-#!/usr/bin/python37all
 import RPi.GPIO as GPIO
 import time
 
@@ -8,7 +7,7 @@ from time import sleep
 
 
 GPIO.setmode(GPIO.BCM)
-GPIO.setup(27, GPIO.OUT)
+#GPIO.setup(27, GPIO.OUT)
 
 pins = [18,21,22,23] # controller inputs: in1, in2, in3, in4
 for pin in pins:
