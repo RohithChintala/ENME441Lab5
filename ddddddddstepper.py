@@ -5,25 +5,6 @@ import time
 import smbus
 from time import sleep
 
-class PCF8591:
-
-  def __init__(self,address):
-    self.bus = smbus.SMBus(1)
-    self.address = address
-
-  def read(self,chn): #channel
-      try:
-          self.bus.write_byte(self.address, 0x40 | chn)  # 01000000
-          self.bus.read_byte(self.address) # dummy read to start conversion
-      except Exception as e:
-          print ("Address: %s \n%s" % (self.address,e))
-      return self.bus.read_byte(self.address)
-
-  def write(self,val):
-      try:
-          self.bus.write_byte_data(self.address, 0x40, int(val))
-      except Exception as e:
-          print ("Error: Device address: 0x%2X \n%s" % (self.address,e))
 
 
 GPIO.setmode(GPIO.BCM)
@@ -72,21 +53,21 @@ def loop(dir): # dir = rotation direction (cw or ccw)
 
 
 class Stepper:
-  def __init__(self, address, angle):
+  def __init__(self, angle):
     self.angle = angle
-    self.adc = PCF8591(address)
+    #self.adc = PCF8591(address)
   def goAngle(self, angle):
     step = (self.angle/360)*512
     if self.angle < 180:
       movestep(step,-1)
     if self.angle > 180:
       movestep(step,1)
-  def zero(self):
-    GPIO.output(27, 1)
-    while self.adc.read(0) > 100: #check to see what normal value is
-      movestep(8,1)
-    GPIO.output(27, 0)
-    self.angle = 0
+  #def zero(self):
+    #GPIO.output(27, 1)
+    #while self.adc.read(0) > 100: #check to see what normal value is
+    #  movestep(8,1)
+    #GPIO.output(27, 0)
+    #self.angle = 0
     #currentstep = 0
 
 try:
