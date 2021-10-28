@@ -48,19 +48,19 @@ def loop(dir): # dir = rotation direction (cw or ccw)
 
 
 class Stepper:
-  def __init__(self, address, angle):
+  def __init__(self, angle):
     self.angle = angle
-    self.adc = PCF8591(address)
+    #self.adc = PCF8591(address)
   def goAngle(self, angle):
-    step = (self.angle/360)*512
-    if self.angle < 180:
-      movestep(step,-1)
-    if self.angle > 180:
-      movestep(step,1)
+    step = int((self.angle/360)*512*4)
+    if self.angle <= 180:
+      moveSteps(step,1)
+    if (self.angle > 180) and (self.angle < 360):
+      moveSteps((step-512*4)*-1,-1)
   def zero(self):
     GPIO.output(27, 1)
     while self.adc.read(0) > 100: #check to see what normal value is
-      movestep(8,1)
+      moveSteps(20,1)
     GPIO.output(27, 0)
     self.angle = 0
     #currentstep = 0

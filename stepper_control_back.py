@@ -12,7 +12,7 @@ while True: #runs continuously
     data = json.load(f) #sets data to be loaded from json dump file
     steps = data['slider1']
     act = data['action']
-  S = StepperMotor(0x48)
+  S = StepperMotor(steps)
   if act == 'rotate'
     S.goAngle(steps)
     time.sleep(2)
