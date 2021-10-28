@@ -27,7 +27,8 @@ def delay_us(tus): # use microseconds to improve time resolution
     pass
 
 def halfstep(dir): # dir = +/- 1 (ccw or cw)
-  global state += dir
+  global state 
+  state += dir
   if state > 7: state = 0
   elif state < 0: state = 7
   for pin in range(4):
