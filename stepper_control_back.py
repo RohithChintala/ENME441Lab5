@@ -35,4 +35,3 @@ while True: #runs continuously
   except Exception as e:
     print(e)
 '''
-GPIO.cleanup()
