@@ -70,7 +70,7 @@ class Stepper:
 
 #loop(cw)
   #loop(ccw)
-S = Stepper(60)
+S = Stepper(180)
 #moveSteps(1000,1)
 S.goAngle(180)
 #sleep(2) 
