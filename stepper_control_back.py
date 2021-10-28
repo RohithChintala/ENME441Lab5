@@ -15,10 +15,8 @@ while True: #runs continuously
   S = StepperMotor(steps)
   if act == 'rotate'
     S.goAngle(steps)
-    time.sleep(2)
   if act == 'zero'  
     S.zero()
-    time.sleep(2)
   
   api = "QYSPJIYIF0S3QIEU"   #####CORRECT FOR MY API
   params = {
