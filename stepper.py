@@ -1,4 +1,3 @@
-#!/usr/bin/python37all
 from PCF8591 import PCF8591 #imports PCF8591 class
 import RPi.GPIO as GPIO
 import time
