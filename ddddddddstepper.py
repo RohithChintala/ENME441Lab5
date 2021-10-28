@@ -55,10 +55,10 @@ class Stepper:
     #self.angle = angle
     #self.adc = PCF8591(address)
   def goAngle(self, angle):
-    step = int((self.angle/360)*512*4)
-    if self.angle <= 180:
+    step = int((angle/360)*512*4)
+    if angle <= 180:
       moveSteps(step,1)
-    if (self.angle > 180) and (self.angle < 360):
+    if (angle > 180) and (angle < 360):
       moveSteps((step-512*4)*-1,-1)
   #def zero(self):
     #GPIO.output(27, 1)
