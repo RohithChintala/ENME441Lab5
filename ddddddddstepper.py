@@ -36,8 +36,7 @@ def halfstep(dir):
   delay_us(1000)
 
 def moveSteps(steps, dir):
-  #move the actuation sequence a given number of half steps 
-  for step in steps:
+  for step in range(steps):
     halfstep(dir)
 
 
