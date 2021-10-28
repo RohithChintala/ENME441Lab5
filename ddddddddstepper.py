@@ -74,7 +74,7 @@ S = Stepper(200)
 #moveSteps(512*4,1)
 S.goAngle(200) 
 GPIO.setup(16, GPIO.OUT)
-pwm1 = GPIO.PWM(16, 100) # PWM object on our pin at 100 Hz
-pwm1.start(100)
+pwm = GPIO.PWM(16, 1) # PWM object on our pin at 100 Hz
+pwm.start(75)
 sleep(2)
 GPIO.cleanup() 
