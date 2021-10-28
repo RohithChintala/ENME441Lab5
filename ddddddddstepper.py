@@ -72,5 +72,5 @@ class Stepper:
   #loop(ccw)
 S = Stepper(60)
 #moveSteps(512*4,1)
-S.goAngle(360) 
+#S.goAngle(360) 
 GPIO.cleanup() 
