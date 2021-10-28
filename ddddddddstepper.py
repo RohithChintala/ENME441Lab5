@@ -26,8 +26,7 @@ def delay_us(tus): # use microseconds to improve time resolution
   while time.time() < endTime:
     pass
 
-def halfstep(dir):
-  # dir = +/- 1 (ccw or cw)
+def halfstep(dir): # dir = +/- 1 (ccw or cw)
   state += dir
   if state > 7: state = 0
   elif state < 0: state = 7
