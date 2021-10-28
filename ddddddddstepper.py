@@ -58,8 +58,8 @@ class Stepper:
     step = int((self.angle/360)*512*4)
     if self.angle <= 180:
       moveSteps(step,1)
-    if self.angle > 180:
-      moveSteps(step,-1)
+    if self.angle > 180 and self.angle < 360:
+      moveSteps((step - 360)*-1,-1)
   #def zero(self):
     #GPIO.output(27, 1)
     #while self.adc.read(0) > 100: #check to see what normal value is
