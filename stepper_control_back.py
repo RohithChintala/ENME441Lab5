@@ -18,7 +18,7 @@ while True: #runs continuously
     S.goAngle(steps)
   if data['action'] == 'z'  
     S.zero()
-'''  
+'''
   api = "QYSPJIYIF0S3QIEU"   #####CORRECT FOR MY API
   params = {
     "api_key":api,
