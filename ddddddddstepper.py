@@ -56,7 +56,7 @@ class Stepper:
     #self.adc = PCF8591(address)
   def goAngle(self, angle):
     step = int((self.angle/360)*512)
-    if self.angle < 180:
+    if self.angle <= 180:
       moveSteps(step,-1)
     if self.angle > 180:
       moveSteps(step,1)
@@ -70,8 +70,8 @@ class Stepper:
 
 #loop(cw)
   #loop(ccw)
-S = Stepper(140)
+S = Stepper(360)
 #moveSteps(1000,1)
-S.goAngle(140)
+S.goAngle(360)
 sleep(2) 
 GPIO.cleanup() 
