@@ -6,8 +6,8 @@ from urllib.request import urlopen
 from urllib.parse import urlencode
 
 while True: #runs continuously
-  GPIO.setup(27, GPIO.OUT)
-  GPIO.output(27, 1)
+  GPIO.setup(12, GPIO.OUT)
+  GPIO.output(12, 1)
   with open('step.txt', 'r') as f: #opens json dump file
     data = json.load(f) #sets data to be loaded from json dump file
     steps = data['slider1']
