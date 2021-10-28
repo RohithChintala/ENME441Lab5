@@ -12,10 +12,10 @@ while True: #runs continuously
   pwm1.start(100)
   with open('led-pwm.txt', 'r') as f: #opens json dump file
     data = json.load(f) #sets data to be loaded from json dump file
-    angle = data['slider1']
+    angle = int(data['slider1'])
     act = data['action']
-    S = Stepper(angle)
-    S.goAngle(angle)
+  S = Stepper(angle)
+  S.goAngle(angle)
   #if data['action'] == 'r':
   #if data['action'] == 'z':
   #  S.zero()
