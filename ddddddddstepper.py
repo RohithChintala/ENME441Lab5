@@ -72,5 +72,5 @@ class Stepper:
   #loop(ccw)
 S = Stepper(0x48)
 moveSteps(1000,1)
-sleep(2) 
+#sleep(2) 
 GPIO.cleanup() 
