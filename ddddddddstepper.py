@@ -90,7 +90,7 @@ class Stepper:
     #currentstep = 0
 
 try:
-  #loop(cw)
+  loop(cw)
   #loop(ccw)
   S = StepperMotor(0x48)
   S.goAngle(60)
