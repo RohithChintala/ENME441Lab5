@@ -12,12 +12,12 @@ while True: #runs continuously
     data = json.load(f) #sets data to be loaded from json dump file
     steps = data['slider1']
     act = data['action']
-  S = StepperMotor(steps)
-  if act == 'rotate'
+    S = StepperMotor(steps)
+  if data['action'] == 'r'
     S.goAngle(steps)
-  if act == 'zero'  
+  if data['action'] == 'z'  
     S.zero()
-  
+'''  
   api = "QYSPJIYIF0S3QIEU"   #####CORRECT FOR MY API
   params = {
     "api_key":api,
@@ -33,5 +33,5 @@ while True: #runs continuously
     time.sleep(16)    # 15 sec minimum
   except Exception as e:
     print(e)
-
+'''
 GPIO.cleanup()
