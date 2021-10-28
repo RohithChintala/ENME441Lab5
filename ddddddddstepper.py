@@ -93,7 +93,7 @@ try:
   loop(cw)
   #loop(ccw)
   S = StepperMotor(0x48)
-  movestep(60,1)
+  movestep(1000,1)
   sleep(2) 
 except:
   pass
