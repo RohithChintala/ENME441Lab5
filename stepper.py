@@ -87,7 +87,7 @@ class Stepper:
     GPIO.output(27, 0)
     self.angle = 0
     #currentstep = 0
-
+'''
 S = Stepper(200)
 #moveSteps(512*4,1)
 S.goAngle(200) 
@@ -96,3 +96,4 @@ pwm = GPIO.PWM(16, 1) # PWM object on our pin at 100 Hz
 pwm.start(75)
 sleep(2)
 GPIO.cleanup() 
+'''
