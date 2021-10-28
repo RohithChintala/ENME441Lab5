@@ -56,9 +56,8 @@ class Stepper:
     #self.adc = PCF8591(address)
   currentangle = 0
   def goAngle(self, angle):
-    step = int(((angle-currentangle)/360)*512*4)
-    global currentangle
-    if currentangle != angle:
+    step = int(((angle-Stepper.currentangle)/360)*512*4)
+    if Stepper.currentangle != angle:
       if angle <= 180:
         moveSteps(step,1)
         currentangle += angle
