@@ -54,10 +54,13 @@ class Stepper:
   #def __init__(self):
     #self.angle = angle
     #self.adc = PCF8591(address)
+  currentangle = 0
   def goAngle(self, angle):
-    step = int((angle/360)*512*4)
+    step = int(((angle-currentangle)/360)*512*4)
+    if currentangle != angle
     if angle <= 180:
       moveSteps(step,1)
+      currentangle += angle
     if (angle > 180) and (angle < 360):
       moveSteps((step-512*4)*-1,-1)
   #def zero(self):
@@ -73,8 +76,7 @@ class Stepper:
 S = Stepper()
 #moveSteps(512*4,1)
 S.goAngle(200) 
-GPIO.setup(16, GPIO.OUT)
-pwm = GPIO.PWM(16, 1) # PWM object on our pin at 100 Hz
-pwm.start(75)
+sleep(2)
+S.goAngle(200)
 sleep(2)
 GPIO.cleanup() 
