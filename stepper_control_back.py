@@ -3,19 +3,18 @@
 from stepper import Stepper
 import RPi.GPIO as GPIO 
 import json
+from time import sleep
 from urllib.request import urlopen
 from urllib.parse import urlencode
 
 while True: #runs continuously
-  GPIO.setup(16, GPIO.OUT)
-  pwm1 = GPIO.PWM(16, 100) # PWM object on our pin at 100 Hz
-  pwm1.start(100)
   with open('led-pwm.txt', 'r') as f: #opens json dump file
     data = json.load(f) #sets data to be loaded from json dump file
     angle = int(data['slider1'])
     act = data['action']
   S = Stepper(angle)
   S.goAngle(angle)
+  sleep(2)
   #if data['action'] == 'r':
   #if data['action'] == 'z':
   #  S.zero()
