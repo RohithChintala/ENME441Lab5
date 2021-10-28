@@ -83,8 +83,8 @@ class Stepper:
   #def zero(self):
    # GPIO.output(27, 1)
    # while self.adc.read(0) > 100: #check to see what normal value is
-      moveSteps(20,1)
-    GPIO.output(27, 0)
+   #   moveSteps(20,1)
+   # GPIO.output(27, 0)
     
   
 '''
