@@ -15,10 +15,10 @@ while True: #runs continuously
     angle = data['slider1']
     act = data['action']
     S = Stepper(angle)
-  if data['action'] == 'r':
     S.goAngle(angle)
-  if data['action'] == 'z':
-    S.zero()
+  #if data['action'] == 'r':
+  #if data['action'] == 'z':
+  #  S.zero()
 '''
   api = "QYSPJIYIF0S3QIEU"   #####CORRECT FOR MY API
   params = {

@@ -64,13 +64,11 @@ class Stepper:
     self.angle = 0
     #currentstep = 0
 
-#try:
-  #loop(cw)
-  #loop(ccw)
-  #goAngle(1000,1)
-#  S = StepperMotor(0x48)
-#  S.goAngle(60)
-#  sleep(2) 
-#except:
-#  pass
+S = Stepper(200)
+#moveSteps(512*4,1)
+S.goAngle(200) 
+GPIO.setup(16, GPIO.OUT)
+pwm = GPIO.PWM(16, 1) # PWM object on our pin at 100 Hz
+pwm.start(75)
+sleep(2)
 GPIO.cleanup() 

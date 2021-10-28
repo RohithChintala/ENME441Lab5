@@ -25,6 +25,8 @@ slide = {"slider1":s1, "action":act} #creates slide dictionary for slider and Le
 with open('led-pwm.txt', 'w') as f: 
   json.dump(slide,f) #uses json to dump dictionary into file
 
+
+
 print('<html>')
 print('<form action="/cgi-bin/stepper_control.py" method="POST">')
 print('<input type="range" name="slider1" min="0" max="360" value="%s"><br>' % s1)
