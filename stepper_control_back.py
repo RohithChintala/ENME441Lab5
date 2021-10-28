@@ -12,7 +12,7 @@ while True: #runs continuously
     data = json.load(f) #sets data to be loaded from json dump file
     angle = int(data['slider1'])
     act = data['action']
-  S = Stepper(angle)
+  S = Stepper()
   S.goAngle(angle)
   #sleep(2)
   #if data['action'] == 'r':
