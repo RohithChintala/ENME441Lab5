@@ -72,6 +72,8 @@ def loop(dir): # dir = rotation direction (cw or ccw)
 
 class Stepper:
   currentangle = 0
+  def __init__(self, address): #instantiates address 
+    self.adc = PCF8591(address) #calls PCF8591 class by composition
   def goAngle(self, angle):
     step = int((abs(angle-Stepper.currentangle)/360)*512*8)
     if Stepper.currentangle != angle:
@@ -81,11 +83,11 @@ class Stepper:
       if Stepper.currentangle < angle:
         moveSteps(step,-1)
         Stepper.currentangle = angle
-  def zero(self):
+   def zero(self):
     GPIO.output(27, 1)
     while self.adc.read(0) < 170: #check to see what normal value 
-    moveSteps(20,1)
-    GPIO.output(27, 0)
+      moveSteps(20,1)
+      GPIO.output(27, 0)
 '''    
 class Stepper:
   currentangle = 0
