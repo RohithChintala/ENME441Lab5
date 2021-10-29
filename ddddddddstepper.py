@@ -108,11 +108,12 @@ class Stepper:
         moveSteps(step,-1)
         Stepper.currentangle = angle
   def zero(self):
-    GPIO.output(27, 100)
+    GPIO.output(27, 1)
     sleep(.5)
-    while self.adc.read(0) < 180: #check to see what normal value 
+    while self.adc.read(0) < 180: #check to see what normal value
+      GPIO.output(27, 100)
       moveSteps(20,1)
-      GPIO.output(27, 0)
+    GPIO.output(27, 0)
 
 S = Stepper(0x48)
 #moveSteps(512*4,1)
