@@ -25,7 +25,7 @@ class PCF8591:
           print ("Error: Device address: 0x%2X \n%s" % (self.address,e))
 
 GPIO.setmode(GPIO.BCM)
-#GPIO.setup(27, GPIO.OUT)
+GPIO.setup(27, GPIO.OUT)
 
 pins = [18,21,22,23] # controller inputs: in1, in2, in3, in4
 for pin in pins:
