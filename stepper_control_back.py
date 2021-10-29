@@ -16,8 +16,8 @@ while True: #runs continuously
     S = Stepper()
     S.goAngle(angle)
     sleep(5)
-  #if data['action'] == 'z':
-  #  S.zero()
+  if data['action'] == 'z':
+    S.zero()
 '''
   api = "QYSPJIYIF0S3QIEU"   #####CORRECT FOR MY API
   params = {
