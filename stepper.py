@@ -69,6 +69,21 @@ def loop(dir): # dir = rotation direction (cw or ccw)
         GPIO.output(pins[pin], dir[halfstep][pin])
       delay_us(1000)
 
+
+class Stepper:
+  currentangle = 0
+  def goAngle(self, angle):
+    step = int((abs(angle-Stepper.currentangle)/360)*512*4)
+    if Stepper.currentangle != angle:
+      if Stepper.currentangle > angle:
+        moveSteps(step,1)
+        Stepper.currentangle = angle
+      if Stepper.currentangle < angle:
+        moveSteps(step,-1)
+        Stepper.currentangle = angle
+
+
+'''    
 class Stepper:
   currentangle = 0
   def goAngle(self, angle):
@@ -90,7 +105,7 @@ class Stepper:
    #   moveSteps(20,1)
    # GPIO.output(27, 0)
     
-  
+''' 
 '''
 class Stepper:
   def __init__(self, angle):
