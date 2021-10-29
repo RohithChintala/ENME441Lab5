@@ -79,7 +79,7 @@ class Stepper:
 class Stepper:
   currentangle = 0
   def goAngle(self, angle):
-    step = int((abs(angle-Stepper.currentangle)/360)*512*4)
+    step = int((abs(angle-Stepper.currentangle)/360)*512*2)
     if Stepper.currentangle != angle:
       if Stepper.currentangle > angle:
         moveSteps(step,1)
