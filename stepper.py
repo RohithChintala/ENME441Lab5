@@ -73,7 +73,7 @@ def loop(dir): # dir = rotation direction (cw or ccw)
 class Stepper:
   currentangle = 0
   def goAngle(self, angle):
-    step = int((abs(angle-Stepper.currentangle)/360)*512*4)
+    step = int((abs(angle-Stepper.currentangle)/360)*512*8)
     if Stepper.currentangle != angle:
       if Stepper.currentangle > angle:
         moveSteps(step,1)
@@ -81,7 +81,6 @@ class Stepper:
       if Stepper.currentangle < angle:
         moveSteps(step,-1)
         Stepper.currentangle = angle
-
 
 '''    
 class Stepper:
