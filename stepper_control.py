@@ -24,7 +24,7 @@ print('<b>Lab 5 Stepper</b>')
 print('<br><br>')
 
 slide = {"slider1":s1, "action":act} #creates slide dictionary for slider and Led variables
-with open('led-pwm.txt', 'w') as f: 
+with open('s.txt', 'w') as f: 
   json.dump(slide,f) #uses json to dump dictionary into file
 
 

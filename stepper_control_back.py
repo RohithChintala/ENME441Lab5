@@ -8,14 +8,14 @@ from urllib.request import urlopen
 from urllib.parse import urlencode
 
 while True: #runs continuously
-  with open('led-pwm.txt', 'r') as f: #opens json dump file
+  with open('s.txt', 'r') as f: #opens json dump file
     data = json.load(f) #sets data to be loaded from json dump file
     angle = int(data['slider1'])
     act = data['action']
-  S = Stepper()
-  S.goAngle(angle)
-  sleep(5)
-  #if data['action'] == 'r':
+  if data['action'] == 'r':
+    S = Stepper()
+    S.goAngle(angle)
+    sleep(5)
   #if data['action'] == 'z':
   #  S.zero()
 '''
