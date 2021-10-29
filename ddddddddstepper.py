@@ -96,6 +96,8 @@ class Stepper:
 '''
 class Stepper:
   currentangle = 0
+  def __init__(self, address): #instantiates address 
+    self.adc = PCF8591(address) #calls PCF8591 class by composition
   def goAngle(self, angle):
     step = int((abs(angle-Stepper.currentangle)/360)*512*8)
     if Stepper.currentangle != angle:
@@ -111,7 +113,7 @@ class Stepper:
       moveSteps(20,1)
       GPIO.output(27, 0)
 
-S = Stepper()
+S = Stepper(0x48)
 #moveSteps(512*4,1)
 S.zero()
 #S.goAngle(180) 
