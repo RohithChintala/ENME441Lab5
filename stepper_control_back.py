@@ -19,10 +19,11 @@ while True: #runs continuously
   if data['action'] == 'z':
     S.zero()
 
+
   api = "QYSPJIYIF0S3QIEU"   #####CORRECT FOR MY API
   params = {
     "api_key":api,
-    1: s1}
+    1: angle}
   params = urlencode(params)   # put dict data into a GET string
 
   # add "?" to URL and append with parameters in GET string:
