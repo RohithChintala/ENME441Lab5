@@ -108,9 +108,9 @@ class Stepper:
           moveSteps(step,1)
       if Stepper.currentangle < 180:
         if (angle < (Stepper.currentangle + 180)) and (angle > (Stepper.currentangle)):
-          moveSteps(step,-1)
-        else:
           moveSteps(step,1)
+        else:
+          moveSteps(step,-1)
   def zero(self):
     GPIO.output(27, 1)
     sleep(.5)
