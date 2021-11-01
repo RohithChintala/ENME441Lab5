@@ -122,7 +122,8 @@ class Stepper:
     Stepper.currentangle = 0
 
 S = Stepper(0x48)
-moveSteps(512*4,1)
+moveSteps(512*4,-1)
+###### 1 = clockwise
 #S.zero()
 #S.goAngle(90) 
 #sleep(3)
