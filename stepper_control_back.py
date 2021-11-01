@@ -18,7 +18,7 @@ while True: #runs continuously
     sleep(5)
   if data['action'] == 'z':
     S.zero()
-'''
+
   api = "QYSPJIYIF0S3QIEU"   #####CORRECT FOR MY API
   params = {
     "api_key":api,
@@ -34,4 +34,4 @@ while True: #runs continuously
     time.sleep(16)    # 15 sec minimum
   except Exception as e:
     print(e)
-'''
+

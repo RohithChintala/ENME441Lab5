@@ -38,26 +38,6 @@ print('</form>')
 print('Angle = %s' % s1)
 print('act = ', act)
 print('<iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/1552343/charts/1?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&xaxis=Motor+Angle&yaxis=Motor+Angle"></iframe>')
-print('<iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/1552343/widgets/373407"></iframe>')
+print('<iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/1552343/widgets/375143"></iframe>')
 print('</html>')
 
-
-'''
-api = "QYSPJIYIF0S3QIEU"   #####CORRECT FOR MY API
-
-
-params = {
-  "api_key":api,
-  1: s1}
-params = urlencode(params)   # put dict data into a GET string
-
-  # add "?" to URL and append with parameters in GET string:
-url = "https://api.thingspeak.com/update?" + params
-try:
-  response = urlopen(url)      # open the URL to send the request
-  print(response.status, response.reason)  # display the response
-  print(response.read()) # display response page data
-  time.sleep(16)    # 15 sec minimum
-except Exception as e:
-  print(e)
-'''
