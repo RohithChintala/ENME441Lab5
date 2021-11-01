@@ -90,6 +90,7 @@ class Stepper:
       GPIO.output(27, 1)
       moveSteps(20,1)
     GPIO.output(27, 0)
+    Stepper.currentangle = 0
 '''    
 class Stepper:
   currentangle = 0

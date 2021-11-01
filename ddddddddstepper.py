@@ -101,12 +101,16 @@ class Stepper:
   def goAngle(self, angle):
     step = int((abs(angle-Stepper.currentangle)/360)*512*8)
     if Stepper.currentangle != angle:
-      if Stepper.currentangle > angle:
-        moveSteps(step,1)
-        Stepper.currentangle = angle
-      if Stepper.currentangle < angle:
-        moveSteps(step,-1)
-        Stepper.currentangle = angle
+      if Stepper.currentangle > 180:
+        if angle > (Stepper.currentangle - 180):
+          moveSteps(step,-1)
+        else:
+          moveSteps(step,1)
+      if Stepper.currentangle < 180:
+        if (angle < (Stepper.currentangle + 180)) and (angle > (Stepper.currentangle)):
+          moveSteps(step,1)
+        else:
+          moveSteps(step,-1)
   def zero(self):
     GPIO.output(27, 1)
     sleep(.5)
@@ -115,12 +119,13 @@ class Stepper:
       moveSteps(20,1)
       print(self.adc.read(0))
     GPIO.output(27, 0)
+    Stepper.currentangle = 0
 
 S = Stepper(0x48)
 #moveSteps(512*4,1)
-S.zero()
-#S.goAngle(180) 
-#sleep(5)
-#S.goAngle(60)
-#sleep(5)
+#S.zero()
+S.goAngle(90) 
+sleep(5)
+S.goAngle(180)
+sleep(5)
 GPIO.cleanup() 
