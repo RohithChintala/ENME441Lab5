@@ -135,7 +135,7 @@ class Stepper:
   def zero(self):
     GPIO.output(27, 1)
     sleep(.5)
-    while self.adc.read(0) < 188: #check to see what normal value
+    while self.adc.read(0) < 186: #check to see what normal value
       GPIO.output(27, 1)
       self.__moveSteps(20,1)
       print(self.adc.read(0))
