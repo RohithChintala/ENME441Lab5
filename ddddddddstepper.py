@@ -121,7 +121,6 @@ class Stepper:
         if angle > Stepper.currentangle:
           moveSteps(step,-1)
           Stepper.currentangle = angle
-
   def zero(self):
     GPIO.output(27, 1)
     sleep(.5)
@@ -136,10 +135,10 @@ S = Stepper(0x48)
 #moveSteps(512*4,-1)
 ###### 1 = clockwise
 #S.zero()
-S.goAngle(90) 
-sleep(3)
-S.goAngle(150)
-sleep(3)
-S.goAngle(350)
-sleep(3)
-GPIO.cleanup() 
+#S.goAngle(90) 
+#sleep(3)
+#S.goAngle(150)
+#sleep(3)
+#S.goAngle(350)
+#sleep(3)
+#GPIO.cleanup() 
