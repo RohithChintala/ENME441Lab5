@@ -1,8 +1,5 @@
 #!/usr/bin/python37all
-
 from stepper import Stepper 
-from stepper import moveSteps
-from stepper import halfstep
 import cgi
 import json
 from urllib.request import urlopen

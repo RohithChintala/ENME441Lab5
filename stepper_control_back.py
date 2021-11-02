@@ -1,5 +1,4 @@
 #!/usr/bin/python37all
-
 from stepper import Stepper
 import RPi.GPIO as GPIO 
 import json
