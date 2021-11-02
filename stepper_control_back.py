@@ -20,19 +20,18 @@ while True: #runs continuously
     S.zero()
 
 
-  api = "QYSPJIYIF0S3QIEU"   #####CORRECT FOR MY API
+  api = "QYSPJIYIF0S3QIEU"
   params = {
     "api_key":api,
     1: angle}
-  params = urlencode(params)   # put dict data into a GET string
+  params = urlencode(params)  
 
-  # add "?" to URL and append with parameters in GET string:
   url = "https://api.thingspeak.com/update?" + params
   try:
-    response = urlopen(url)      # open the URL to send the request
-    print(response.status, response.reason)  # display the response
-    print(response.read()) # display response page data
-    time.sleep(16)    # 15 sec minimum
+    response = urlopen(url)  
+    print(response.status, response.reason) 
+    print(response.read()) 
+    time.sleep(16)
   except Exception as e:
     print(e)
 

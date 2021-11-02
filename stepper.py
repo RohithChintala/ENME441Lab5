@@ -25,35 +25,22 @@ def delay_us(tus): # use microseconds to improve time resolution
   endTime = time.time() + float(tus)/ float(1E6)
   while time.time() < endTime:
     pass
-
-def halfstep(dir): # dir = +/- 1 (ccw or cw)
-  global state 
-  state += dir
-  if state > 7: state = 0
-  elif state < 0: state = 7
-  for pin in range(4):
-    GPIO.output(pins[pin], sequence[state][pin])
-  delay_us(1000)
-
-def moveSteps(steps, dir):
-  for step in range(steps):
-    halfstep(dir)
-
-
-
-# Make a full rotation of the output shaft:
-def loop(dir): # dir = rotation direction (cw or ccw)
-  for i in range(512): # full revolution (8 cycles/rotation * 64 gear ratio)
-    for halfstep in range(8): # 8 half-steps per cycle
-      for pin in range(4):    # 4 pins that need to be energized
-        GPIO.output(pins[pin], dir[halfstep][pin])
-      delay_us(1000)
-
-
+    
 class Stepper:
   currentangle = 0
   def __init__(self, address): #instantiates address 
     self.adc = PCF8591(address) #calls PCF8591 class by composition
+  def __halfstep(self,dir): # dir = +/- 1 (ccw or cw)
+    global state 
+    state += dir
+    if state > 7: state = 0
+    elif state < 0: state = 7
+    for pin in range(4):
+      GPIO.output(pins[pin], sequence[state][pin])
+    delay_us(1000)
+  def __moveSteps(self,steps, dir):
+    for step in range(steps):
+      self.__halfstep(dir)
   def goAngle(self, angle):
     #step = int((abs(angle-Stepper.currentangle)/360)*512*8)
     x = abs(angle - Stepper.currentangle) % 360
@@ -65,25 +52,24 @@ class Stepper:
       step = int(((l)/360)*512*8)
       if x < 180:
         if angle > Stepper.currentangle:
-          moveSteps(step,1)
+          self.__moveSteps(step,1)
           Stepper.currentangle = angle
         if angle < Stepper.currentangle:
-          moveSteps(step,-1)
+          self.__moveSteps(step,-1)
           Stepper.currentangle = angle
       if x > 180: 
         if angle < Stepper.currentangle:
-          moveSteps(step,1)
+          self.__moveSteps(step,1)
           Stepper.currentangle = angle
         if angle > Stepper.currentangle:
-          moveSteps(step,-1)
+          self.__moveSteps(step,-1)
           Stepper.currentangle = angle
   def zero(self):
     GPIO.output(27, 1)
     sleep(.5)
-    while self.adc.read(0) < 187: #check to see what normal value
+    while self.adc.read(0) < 184: #check to see what normal value
       GPIO.output(27, 1)
-      moveSteps(20,1)
+      self.__moveSteps(20,1)
       print(self.adc.read(0))
     GPIO.output(27, 0)
     Stepper.currentangle = 0
-    sleep(3)
