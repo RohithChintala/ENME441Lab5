@@ -1,30 +1,10 @@
 
-#from PCF8591 import PCF8591 #imports PCF8591 class
+from PCF8591 import PCF8591 #imports PCF8591 class
 import RPi.GPIO as GPIO
 import time
 
 import smbus
 from time import sleep
-
-class PCF8591:
-
-  def __init__(self,address):
-    self.bus = smbus.SMBus(1)
-    self.address = address
-
-  def read(self,chn): #channel
-      try:
-          self.bus.write_byte(self.address, 0x40 | chn)  # 01000000
-          self.bus.read_byte(self.address) # dummy read to start conversion
-      except Exception as e:
-          print ("Address: %s \n%s" % (self.address,e))
-      return self.bus.read_byte(self.address)
-
-  def write(self,val):
-      try:
-          self.bus.write_byte_data(self.address, 0x40, int(val))
-      except Exception as e:
-          print ("Error: Device address: 0x%2X \n%s" % (self.address,e))
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(27, GPIO.OUT)
@@ -75,20 +55,35 @@ class Stepper:
   def __init__(self, address): #instantiates address 
     self.adc = PCF8591(address) #calls PCF8591 class by composition
   def goAngle(self, angle):
-    step = int((abs(angle-Stepper.currentangle)/360)*512*8)
+    #step = int((abs(angle-Stepper.currentangle)/360)*512*8)
+    x = abs(angle - Stepper.currentangle) % 360
     if Stepper.currentangle != angle:
-      if Stepper.currentangle > angle:
-        moveSteps(step,1)
-        Stepper.currentangle = angle
-      if Stepper.currentangle < angle:
-        moveSteps(step,-1)
-        Stepper.currentangle = angle
+      if abs(angle - Stepper.currentangle) > 180:
+        l = 360 - x
+      else:
+        l = x 
+      step = int(((l)/360)*512*8)
+      if x < 180:
+        if angle > Stepper.currentangle:
+          moveSteps(step,1)
+          Stepper.currentangle = angle
+        if angle < Stepper.currentangle:
+          moveSteps(step,-1)
+          Stepper.currentangle = angle
+      if x > 180: 
+        if angle < Stepper.currentangle:
+          moveSteps(step,1)
+          Stepper.currentangle = angle
+        if angle > Stepper.currentangle:
+          moveSteps(step,-1)
+          Stepper.currentangle = angle
   def zero(self):
     GPIO.output(27, 1)
     sleep(.5)
-    while self.adc.read(0) < 170: #check to see what normal value
+    while self.adc.read(0) < 180: #check to see what normal value
       GPIO.output(27, 1)
       moveSteps(20,1)
+      print(self.adc.read(0))
     GPIO.output(27, 0)
     Stepper.currentangle = 0
 '''    
