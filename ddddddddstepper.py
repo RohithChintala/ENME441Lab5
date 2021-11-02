@@ -100,7 +100,7 @@ class Stepper:
     self.adc = PCF8591(address) #calls PCF8591 class by composition
   def goAngle(self, angle):
     #step = int((abs(angle-Stepper.currentangle)/360)*512*8)
-    x = abs(angle - current) % 360
+    x = abs(angle - Stepper.currentangle) % 360
     step = int(((l)/360)*512*8)
     if Stepper.currentangle != angle:
       if abs(angle - Stepper.currentangle) > 180:
