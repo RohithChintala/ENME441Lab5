@@ -13,10 +13,10 @@ while True: #runs continuously
     angle = int(data['slider1'])
     act = data['action']
   S = Stepper(0x48)
-  if data['action'] == 'r':
+  if data['action'] == 'Rotate':
     S.goAngle(angle)
     sleep(5)
-  if data['action'] == 'z':
+  if data['action'] == 'Zero':
     S.zero()
 
 

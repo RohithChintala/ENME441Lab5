@@ -87,3 +87,4 @@ class Stepper:
     GPIO.output(27, 0)
     Stepper.currentangle = 0
     sleep(1)
+    GPIO.cleanup() 
