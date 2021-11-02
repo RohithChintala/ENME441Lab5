@@ -124,7 +124,7 @@ class Stepper:
   def zero(self):
     GPIO.output(27, 1)
     sleep(.5)
-    while self.adc.read(0) < 170: #check to see what normal value
+    while self.adc.read(0) < 180: #check to see what normal value
       GPIO.output(27, 1)
       moveSteps(20,1)
       print(self.adc.read(0))
@@ -134,11 +134,11 @@ class Stepper:
 S = Stepper(0x48)
 #moveSteps(512*4,-1)
 ###### 1 = clockwise
-#S.zero()
+S.zero()
 #S.goAngle(90) 
 #sleep(3)
 #S.goAngle(150)
 #sleep(3)
 #S.goAngle(350)
 #sleep(3)
-#GPIO.cleanup() 
+GPIO.cleanup() 
