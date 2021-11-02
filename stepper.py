@@ -80,7 +80,7 @@ class Stepper:
   def zero(self):
     GPIO.output(27, 1)
     sleep(.5)
-    while self.adc.read(0) < 180: #check to see what normal value
+    while self.adc.read(0) < 187: #check to see what normal value
       GPIO.output(27, 1)
       moveSteps(20,1)
       print(self.adc.read(0))
