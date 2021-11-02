@@ -98,7 +98,7 @@ class Stepper:
   currentangle = 0
   def __init__(self, address): #instantiates address 
     self.adc = PCF8591(address) #calls PCF8591 class by composition
-  def __halfstep(dir): # dir = +/- 1 (ccw or cw)
+  def __halfstep(self,dir): # dir = +/- 1 (ccw or cw)
     global state 
     state += dir
     if state > 7: state = 0
@@ -106,7 +106,7 @@ class Stepper:
     for pin in range(4):
       GPIO.output(pins[pin], sequence[state][pin])
     delay_us(1000)
-  def __moveSteps(steps, dir):
+  def __moveSteps(self,steps, dir):
     for step in range(steps):
       self.__halfstep(dir)
   def goAngle(self, angle):
