@@ -86,3 +86,4 @@ class Stepper:
       print(self.adc.read(0))
     GPIO.output(27, 0)
     Stepper.currentangle = 0
+    sleep(1)
