@@ -108,7 +108,7 @@ class Stepper:
     delay_us(1000)
   def __moveSteps(steps, dir):
     for step in range(steps):
-      self.halfstep(dir)
+      self.__halfstep(dir)
   def goAngle(self, angle):
     #step = int((abs(angle-Stepper.currentangle)/360)*512*8)
     x = abs(angle - Stepper.currentangle) % 360
@@ -120,24 +120,24 @@ class Stepper:
       step = int(((l)/360)*512*8)
       if x < 180:
         if angle > Stepper.currentangle:
-          self.moveSteps(step,1)
+          self.__moveSteps(step,1)
           Stepper.currentangle = angle
         if angle < Stepper.currentangle:
-          self.moveSteps(step,-1)
+          self.__moveSteps(step,-1)
           Stepper.currentangle = angle
       if x > 180: 
         if angle < Stepper.currentangle:
-          self.moveSteps(step,1)
+          self.__moveSteps(step,1)
           Stepper.currentangle = angle
         if angle > Stepper.currentangle:
-          self.moveSteps(step,-1)
+          self.__moveSteps(step,-1)
           Stepper.currentangle = angle
   def zero(self):
     GPIO.output(27, 1)
     sleep(.5)
     while self.adc.read(0) < 187: #check to see what normal value
       GPIO.output(27, 1)
-      self.moveSteps(20,1)
+      self.__moveSteps(20,1)
       print(self.adc.read(0))
     GPIO.output(27, 0)
     Stepper.currentangle = 0
