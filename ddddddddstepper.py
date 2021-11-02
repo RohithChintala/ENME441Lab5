@@ -103,19 +103,19 @@ class Stepper:
     x = abs(angle - current) % 360
     step = int(((l)/360)*512*8)
     if Stepper.currentangle != angle:
-      if abs(angle - current) > 180:
+      if abs(angle - Stepper.currentangle) > 180:
         l = 360 - x
       else:
         l = x 
       if x < 180:
-        if angle > current:
+        if angle > Stepper.currentangle:
           moveSteps(step,1)
-        if angle < current:
+        if angle < Stepper.currentangle:
           moveSteps(step,-1)
       if x > 180: 
-        if angle < current:
+        if angle < Stepper.currentangle:
           moveSteps(step,1)
-        if angle > current:
+        if angle > Stepper.currentangle:
           moveSteps(step,-1)
 
   def zero(self):
