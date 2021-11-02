@@ -43,7 +43,7 @@ def delay_us(tus): # use microseconds to improve time resolution
   endTime = time.time() + float(tus)/ float(1E6)
   while time.time() < endTime:
     pass
-
+'''
 def halfstep(dir): # dir = +/- 1 (ccw or cw)
   global state 
   state += dir
@@ -56,7 +56,7 @@ def halfstep(dir): # dir = +/- 1 (ccw or cw)
 def moveSteps(steps, dir):
   for step in range(steps):
     halfstep(dir)
-
+'''
 
 #yes
 # Make a full rotation of the output shaft:
@@ -98,6 +98,17 @@ class Stepper:
   currentangle = 0
   def __init__(self, address): #instantiates address 
     self.adc = PCF8591(address) #calls PCF8591 class by composition
+  def __halfstep(dir): # dir = +/- 1 (ccw or cw)
+    global state 
+    state += dir
+    if state > 7: state = 0
+    elif state < 0: state = 7
+    for pin in range(4):
+      GPIO.output(pins[pin], sequence[state][pin])
+    delay_us(1000)
+  def __moveSteps(steps, dir):
+    for step in range(steps):
+      halfstep(dir)
   def goAngle(self, angle):
     #step = int((abs(angle-Stepper.currentangle)/360)*512*8)
     x = abs(angle - Stepper.currentangle) % 360
