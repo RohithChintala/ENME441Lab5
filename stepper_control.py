@@ -7,7 +7,7 @@ from urllib.parse import urlencode
 
 data = cgi.FieldStorage()
 s1 = data.getvalue('slider1') #gets slider value from website
-act = data.getvalue('action') #gets led value from website
+act = data.getvalue('action') #gets action value from website
 
 print('Content-type:text/html\n\n')
 print('<html>')
@@ -20,7 +20,7 @@ print('<font size="3" color="black" face="helvetica">')
 print('<b>Lab 5 Stepper</b>')
 print('<br><br>')
 
-slide = {"slider1":s1, "action":act} #creates slide dictionary for slider and Led variables
+slide = {"slider1":s1, "action":act} #creates slide dictionary for slider and action variables
 with open('s.txt', 'w') as f: 
   json.dump(slide,f) #uses json to dump dictionary into file
 
