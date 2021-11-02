@@ -110,13 +110,17 @@ class Stepper:
       if x < 180:
         if angle > Stepper.currentangle:
           moveSteps(step,1)
+          Stepper.currentangle = angle
         if angle < Stepper.currentangle:
           moveSteps(step,-1)
+          Stepper.currentangle = angle
       if x > 180: 
         if angle < Stepper.currentangle:
           moveSteps(step,1)
+          Stepper.currentangle = angle
         if angle > Stepper.currentangle:
           moveSteps(step,-1)
+          Stepper.currentangle = angle
 
   def zero(self):
     GPIO.output(27, 1)
