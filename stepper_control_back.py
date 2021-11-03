@@ -17,7 +17,6 @@ while True: #runs continuously
     sleep(5) #sleeps 5 seconds
   if data['action'] == 'zero': #runs if zero button is pressed
     S.zero() #zeros angle
-    angle = 0
 
 #sends angle data to thingspeak
   api = "QYSPJIYIF0S3QIEU"  
