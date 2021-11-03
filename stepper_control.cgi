@@ -25,7 +25,7 @@ with open('s.txt', 'w') as f: #ppens s.txt file
   json.dump(slide,f) #uses json to dump dictionary into file
 
 print('<html>')
-print('<form action="/cgi-bin/stepper_control.py" method="POST">')
+print('<form action="/cgi-bin/stepper_control.cgi" method="POST">')
 print('<input type="range" name="slider1" min="0" max="360" value="%s"><br>' % s1)
 print('<input type="submit" name="action" value="rotate" />')
 print('<input type="submit" name="action" value="zero" />')
