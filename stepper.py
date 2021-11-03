@@ -66,7 +66,7 @@ class Stepper:
   def zero(self): #creates zero method
     GPIO.output(27, 1) #sets pin 27 to be high
     sleep(.5)
-    while self.adc.read(0) < 160: #runs while photoresistor can see led
+    while self.adc.read(0) < 170: #runs while photoresistor can see led
       GPIO.output(27, 1) #sets pin 27 to be high
       self.__moveSteps(20,1) #moves 20 steps
     GPIO.output(27, 0) #sets pin 27 to be low
