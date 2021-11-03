@@ -70,4 +70,5 @@ class Stepper:
       GPIO.output(27, 1) #sets pin 27 to be high
       self.__moveSteps(20,1) #moves 20 steps
     GPIO.output(27, 0) #sets pin 27 to be low
+    sleep(1)
     Stepper.currentangle = 0 #sets current angle to be 0
