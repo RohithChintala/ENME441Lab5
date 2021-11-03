@@ -30,7 +30,7 @@ while True: #runs continuously
     response = urlopen(url)  
     print(response.status, response.reason) 
     print(response.read()) 
-    time.sleep(15)
+    time.sleep(16)
   except Exception as e:
     print(e)
 
