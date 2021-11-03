@@ -32,7 +32,7 @@ print('<input type="submit" name="action" value="zero" />')
 print('</form>')
 print('Angle = %s' % s1)
 print('act = ', act)
-print('<iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/1552343/charts/1?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&xaxis=Motor+Angle&yaxis=Motor+Angle"></iframe>')
+print('<iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/1552343/charts/1?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&title=Motor+Angle+Vs+Time&type=line&xaxis=Time&yaxis=Motor+Angle"></iframe>')
 print('<iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/1552343/widgets/375143"></iframe>')
 print('</html>')
 
